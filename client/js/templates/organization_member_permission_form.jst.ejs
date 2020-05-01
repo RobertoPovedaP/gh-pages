@@ -1,0 +1,26 @@
+<% if (!_.isUndefined(authuser.user) && (authuser.user.role_id == 1 || !_.isEmpty(organization_user.acl_links.where({slug: 'edit_organization_user', organization_user_role_id: parseInt(organization_user.organization_user_role_id)})))) {%>
+<li class="col-xs-12 text-center clearfix">
+	<div class="clearfix">
+		<span class="col-xs-10"><strong><%- i18next.t('Change permissions') %></strong></span><a class="js-close-popover pull-right" href="#"><i class="icon-remove"></i></a>
+	</div>
+</li>
+<li class="divider col-xs-12 btn-block"></li>
+<% _.each(organization_user.organization_user_roles, function(organization_user_role) {%>
+	<li class="col-xs-12 btn-block">
+		<a class="h6 navbar-btn js-edit-organization-member-permission" data-organizations_user_id="<%- organization_user.organizations_user_id %>" 
+		data-organizations_id="<%- organization_user.attributes.organization_id %>" data-organization_user_role_id="<%- organization_user_role.id %>" href="#">
+			<span class="show text-primary navbar-btn h5"><%- organization_user_role.name %>  
+			<% if(organization_user_role.id == organization_user.attributes.organization_user_role_id){%><i class="icon-check well-sm"></i><%}%>	
+			</span>
+			<% if(organization_user_role.name === 'Viewer'){ %>
+				<span class="show"><%- i18next.t('Can view organizations members and can change organizations visibility only.') %></span>
+			<% } else if(organization_user_role.name === 'Editor'){ %>
+				<span class="show"><%- i18next.t('Can view, create and edit Organizations, view organizations members and change visibility for the organization.') %></span>
+			<% } else { %>
+				<span class="show"><%- i18next.t('Can view, create, edit and delete organizations and organizations members, can change organizations visibility,  and can change settings for the organization.') %></span>
+			<% } %>
+		</a>
+	</li>
+	<li class="divider col-xs-12 btn-block"></li>
+<% });
+} %>

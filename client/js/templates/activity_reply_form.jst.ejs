@@ -1,0 +1,60 @@
+<ul class="media-list comment-list">
+<li class="media comment-block">
+<ul class="nav nav-tabs no-bor h3">
+	<li class="active js-show-replyComment show-replyComment-<%- activity.attributes.id%> cur" data-id="<%- activity.attributes.id%>"><a><%- i18next.t("Write") %></a></li>
+		<li class="js-preview-replyComment preview-replyComment-<%- activity.attributes.id%> cur" data-id="<%- activity.attributes.id%>"><a><%- i18next.t("Preview") %></a></li>
+</ul>
+<div class="well-sm"></div>
+<div class="form-group required">
+	<textarea rows="4" id="inputAddComment" name="comment" class="form-control input-sm js-comment" placeholder="<%- i18next.t('Write a comment') %>" title="<%- i18next.t('Write a comment') %>" required></textarea>
+	<div class="panel js-card-replyComment-preview-panel hide no-mar">
+		<div class="panel-body js-card-replyComment-preview github-markdown"></div>
+	</div>
+</div>
+</li>
+<li class="js-new-comment clearfix btn-block navbar-btn">
+<div class="col-xs-11 radio pull-right btn-block">
+	<ul class="list-unstyled clearfix">
+		<li class="pull-left radio-inline">
+			<div class="clearfix dropdown js-show-emoji-list-response"> <a class="js-show-emoji-list show dropdown-toggle btn-link btn-xs btn-block" role="button" data-toggle="dropdown" title="<%- i18next.t('Add Emoji') %>" href="#"> <span class="text-muted show" ><%- i18next.t('Add Emoji') %></span> </a>
+			</div>
+		</li>		
+		<% if(!_.isUndefined(authuser.user) && (authuser.user.role_id == 1 ||  !_.isEmpty(list.collection.board.acl_links.where({slug: "view_card_search", board_user_role_id: parseInt(list.board_user_role_id)})))) { %>
+			<li class="pull-left radio radio-inline">
+				<div class="clearfix dropdown"> <a class="show dropdown-toggle btn-link btn-xs btn-block" role="button" data-toggle="dropdown" title="<%- i18next.t('Add Card') %>" href="#"> <span class="text-muted show" ><%- i18next.t('Add Card') %></span> </a>
+				<ul class="dropdown-menu arrow col-xs-3 list-group pre-scrollable vertical-scrollbar">
+					<li class="col-xs-12 clearfix text-center">
+					<div><span class="col-xs-10"><strong><%- i18next.t('Add Card') %></strong></span>
+					<a class="js-close-popover pull-right" href="#"><i class="icon-remove "></i></a></div>
+					</li>
+					<li class="col-xs-12 divider"></li>
+					<li class="col-xs-12 js_activity_card_search_response">
+						<div class="clearfix">
+						<label class="sr-only"><%- i18next.t('Search Card') %></label>                            
+							<input type="text" placeholder="<%- i18next.t('Search Card') %>" name="card" class="js-search-card form-control input-sm  js-no-action" title="<%- i18next.t('Search Card') %>">
+						</div>
+					</li>
+				</ul>
+				</div>
+			</li>
+		<% } %>
+		<li class="pull-left radio radio-inline js-modal-card-wiki-reply" data-activity-id="<%- activity.attributes.id%>"></li>
+		<li class="dropdown pull-left radio-inline radio">
+		  <div class="clearfix dropdown"> <a class="show dropdown-toggle btn-link btn-xs btn-block js-show-members" role="button" data-toggle="dropdown" title="<%- i18next.t('Mention a member') %>" href="#"> <span class="text-muted show" ><%- i18next.t('Mention a member') %></span> </a>
+			<ul class="dropdown-menu arrow col-xs-3">
+			  <li class="col-xs-12 clearfix text-center"><div><span class="col-xs-10"><strong><%- i18next.t('Mention a member') %></strong></span> <a class="js-close-popover pull-right" href="#"><i class="icon-remove "></i></a></div></li>
+			  <li class="col-xs-12 divider"></li>
+			  <li class="col-xs-12 js-comment-member-search-response">
+				  <div class="clearfix">
+					<label class="sr-only"><%- i18next.t('Search Member') %></label>
+					<input type="text" autocomplete="off" placeholder="<%- i18next.t('Search Members') %>" name="member" class="js-search-member form-control input-sm js-no-action" title="<%- i18next.t('Search Members') %>">
+				  </div>
+			  </li>
+			</ul>
+		   </div>
+		</li>
+	</ul>
+<div class="submit panel-body">
+<input type="hidden" name="list_id" id="ListID" value="<%- activity.attributes.list_id%>"> <input type="hidden" name="card_id" id="CardID" value="<%- activity.attributes.card_id%>"> <input type="hidden" name="root" id="RootID" value="<%- activity.attributes.id%>"> <input type="submit" id="submitCommentAdd" class="btn btn-primary" value="<%- i18next.t('Reply') %>"> <i class="icon-remove js-hide-reply-comment-form btn btn-link cur" title="<%- i18next.t('Cancel') %>" data-activity-id="<%- activity.attributes.id%>"></i>
+</div>
+</li>

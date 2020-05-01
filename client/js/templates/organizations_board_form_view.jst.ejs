@@ -1,0 +1,28 @@
+<li class="js-back">
+	 <div class="col-xs-12 text-center clearfix"><a href="#" class="js-back-boards-list pull-left"><i class="icon-caret-left"></i></a><span class="col-xs-10"><strong><%- i18next.t('Add') %> </strong></span><a class="js-close-popover pull-right" href="#"><i class="icon-remove"></i> </a></div> 
+</li>
+<li class="col-xs-12 navbar-btn divider js-back"></li>
+<% if(!_.isEmpty(role_links.where({slug: "add_board"}))){ %>
+<li class="col-xs-12 btn-block js-back">
+	<a href="#" class="js-show-board-import-forms col-xs-12 h6 navbar-btn">
+		<span class="show clearfix text-primary navbar-btn h5"><%- i18next.t('Import Board') %></span>
+		<span class="show"><%- i18next.t('A board is a collection of cards ordered in a list of lists. You can import board from Asana, Github, Kantree.io, Pipefy, Taiga, Taskwarrior, Trello and Wekan') %>.</span>
+	</a>
+</li>	
+<li class="col-xs-12 navbar-btn divider js-back"></li>
+<li class="col-xs-12 btn-block js-back">
+	<a href="#" class="js-show-board-add-form col-xs-12 h6 navbar-btn">
+		<span class="show clearfix text-primary navbar-btn h5"><%- i18next.t('New Board') %></span>
+		<span class="show"><%- i18next.t('A board is a collection of cards ordered in a list of lists. Use it to manage a project, track a collection, or organize anything.') %></span>
+	</a>
+</li>
+<li class="col-xs-12 navbar-btn divider js-back"></li>
+<% } %> 
+<% if(!_.isEmpty(role_links.where({slug: "add_organization"}))){ %>
+<li class="col-xs-12 btn-block js-back">
+	<a href="#" class="js-show-organizations-add-form col-xs-12 navbar-btn h6">
+		<span class="show clearfix text-primary navbar-btn h5"><%- i18next.t('New Organization') %></span>
+		<span class="show"><%- i18next.t('An organization is a group of boards and people. Use it to group boards in your company, team, or family.') %></span>
+	</a>
+</li>
+<% } %>

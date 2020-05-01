@@ -77,7 +77,11 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
  <head>
 	 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	 <link rel="stylesheet" type="text/css" href="/css/authorize.css">
-	<script src="/js/authorize.cache.js"></script>
+	<!-- build:js /js/authorize.cache.js -->
+	<script src="/js/libs/jquery-1.8.3.js"></script>
+	<script src="/js/libs/bootstrap-alert.js"></script>
+	<script src="/js/libs/jquery.bootstrap-growl.js"></script>
+	<!-- endbuild -->
  </head>
  <body style="cursor: auto">
 	 <div class="navbar-btn"></div>

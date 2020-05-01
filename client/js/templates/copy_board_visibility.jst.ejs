@@ -1,0 +1,10 @@
+<span class="pull-left">
+	<span class="pull-left"> <%- i18next.t('This board will be') %> </span>
+	<span class="pull-left"><%- i18next.t('Private') %></span>.
+</span>
+<a class="pull-left js-change-visibility" href="#"><%- i18next.t('Change') %></a>
+<% if (name == 'org') { %>
+	<span class="pull-left"><span class="pull-left"><%- i18next.t('This board will be') %> </span><span class="pull-left"><%- i18next.t('Organization') %></span>.</span><a class="pull-left js-change-visibility" href="#"><%- i18next.t('Change') %></a>
+<% } else if (name == 'public') { %>
+	<span class="pull-left"><span class="pull-left"><%- i18next.t('This board will be') %> </span><span class="pull-left"><%- i18next.t('Public') %></span>.</span><a class="pull-left js-change-visibility" href="#"><%- i18next.t('Change') %></a>
+<% } %>

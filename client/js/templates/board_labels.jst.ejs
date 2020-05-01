@@ -1,0 +1,45 @@
+<div class="clearfix text-center col-xs-12">
+	<a href="#" class="js-back-to-sidebar pull-left btn btn-xs btn-link">
+			<i class="icon-caret-left"></i>
+	</a>
+	<span class="col-xs-10 navbar-btn"><strong><%- i18next.t('Labels') %></strong></span>
+</div>
+<div class="col-xs-12 divider"></div>
+<div class="col-xs-12 member-modal js-pre-scrollable vertical-scrollbar">
+	<% if (board.labels.length > 0) { %>
+	<div class="clearfix col-xs-12">
+		<form class="form-horizontal"><div class="form-group"><input class="js-search-board-labels form-control" id="inputSearchBoardLabels" name="name"></div></form>
+	<ul class="nav nav-pills nav-stacked label-block js-board-labels-container">
+	<% 
+		var labels = Array();
+		board.labels.each(function(label) {
+			if (!_.contains(labels, label.attributes.name)) {
+				labels.push(label.attributes.name);
+		%>    
+		<li class="clearfix cur card-label-show h5 btn-link media">
+			<div data-id="<%- label.attributes.label_id %>" class="<% if(!_.isUndefined(authuser.user) && (authuser.user.role_id == 1 ||  !_.isEmpty(board.acl_links.where({slug: "edit_labels",board_user_role_id: parseInt(board.board_user_role_id)})))) { %>js-show-edit-card-label-form cur<% } %>">
+				<span style="background:<%- (label.attributes.color) ? label.attributes.color : '#'+converter.colorCode(label.attributes.name).substring(0, 6) %>;color:#ffffff" class="pull-left btn btn-xs">
+					<i class="<%= LABEL_ICON %> icon-light cur"></i>
+				</span>
+				<div class="board-labels">
+					<div class="htruncate"><%-label.attributes.name %></div>
+				</div>
+			</div>
+			<div class='js-delete-labels-icon pull-right'>
+				<a data-id="<%- label.attributes.label_id %>" class="js-delete-labels btn btn-default btn-xs pull-right" data-toggle="dropdown">
+					<i class="icon-remove cur"></i>
+				</a>
+			</div>
+		</li>
+	<%		}
+		}); 
+		%>
+	</ul>
+	</div>
+	<hr>
+	<% }else{ %>
+	<span class="alert alert-info">
+		<%- i18next.t('No %s available.', { postProcess: 'sprintf', sprintf: [i18next.t('labels')] }) %>
+    </span>
+	<% } %>
+</div>

@@ -1,0 +1,89 @@
+<% if(board != null){ %>
+<hr>
+<div class="panel">
+  <% if(!_.isEmpty(board.subscribers)){ var subscriber = board.subscribers.findWhere({ user_id: parseInt(authuser.user.id) }); } %>
+  <div class="panel-body bg-warning">
+    <div class="clearfix">
+		<h4 class="col-md-9 col-sm-8 col-xs-9 navbar-btn">
+			<span class="show row navbar-btn">
+			  <% if(!_.isEmpty(role_links.where({slug: "view_board"}))){ %>
+			  <a href="#/board/<%- board.id %>" title="<%- board.attributes.name %>" class="htruncate btn-block">
+			  <% } %>
+			  <% if(board.attributes.organization_id > 0 && board.attributes.organization_id != null){ 
+					var logo_path = "img/default-organization.png"; 
+					if (!_.isUndefined(board.attributes.organization_logo_url) && board.attributes.organization_logo_url != null && board.attributes.organization_logo_url != '') {
+						logo_path = board.showImage('Organization', board.attributes.organization_id, 'small_thumb' );
+					}
+			  %>
+					<img src="<%- logo_path %>" title="<%-board.attributes.organization_name%>" alt="[Image: Organization]" class="pull-left navbar-btn" width="16" height="16" /> &nbsp;
+			  <% } %>
+			   <%- board.attributes.name%>
+			  <% if(!_.isEmpty(role_links.where({slug: "view_board"}))){ %>
+			  </a>
+			  <% } %>
+      		</span>
+	  	</h4> 
+		<span class="pull-right dropdown h5">
+		<% if(board.attributes.board_visibility == 0) { %>
+		  <span title="<%- i18next.t('Private') %>" class="text-primary icon-lock col-lg-2"></span>
+		  <% } else if(board.attributes.board_visibility == 1) { %>
+		  <span title="<%- i18next.t('Organization') %>" class="text-primary icon-group col-lg-2"></span>
+		  <% } else if(board.attributes.board_visibility == 2) { %>
+		  <span title="<%- i18next.t('Public') %>" class="text-primary icon-circle col-lg-2"></span>
+		  <% } %>
+		</span>
+	  <% if(!_.isEmpty(role_links.where({slug: "starred_board"}))){ %>
+      <% if(!_.isUndefined(starred_boards) && starred_boards.map( Number ).indexOf(board.attributes.id) != -1){ %>
+      <a title="<%- i18next.t('Unstar') %>" href="#" class="pull-right js-star-board h5" name="unstar"><i class="icon-star text-primary"></i></a>
+      <% } else {%>
+      <a title="<%- i18next.t('Star') %>" href="#" class="pull-right js-star-board h5" name="star"><i class="icon-star-empty"></i></a>
+      <% } %>
+      <% } %>
+    </div>
+    <div class="js-board-inner-view"></div>
+	<ul class="list-unstyled chart-block">
+	<% 
+	var style = '';			
+	if (board.attributes.background_picture_url) {
+		var background_picture_url = board.attributes.background_picture_url.replace("_XXXX.jpg", "_n.jpg");
+		style = 'background:url(' + background_picture_url + ') 25% 25%; background-size: cover';
+	} else if (board.attributes.background_pattern_url) {
+		var background_pattern_url = board.attributes.background_pattern_url.replace("_XXXX.jpg", "_s.jpg");
+		style = 'background: transparent url(' + background_pattern_url + ')  repeat scroll 0% 0%;';
+	} else if (board.attributes.background_color){
+		style = 'background:' + board.attributes.background_color;
+	}
+	%>
+		<li class="list-group-item clearfix" style="<%= style %>">
+			<% if(!_.isEmpty(board.attributes.music_name)){ %>
+			<div class="col-xs-push-0 pa well-sm board-music-bg"><i class="icon-music icon-light"></i></div>
+			<% } %>
+			<a class="show" href="#/board/<%- board.id %>">
+			    <div id="doughnutChart" class="chart js-chart-<%- board.id %>"></div>
+			</a>
+		</li>
+	</ul>
+  </div>
+</div>
+<% } else { %>
+		<%
+			if (!_.isEmpty(role_links.where({
+				slug: "add_board"
+			}))) {
+		%>
+	<hr>
+	<div class="panel">
+		<div class="panel-body bg-warning">
+			<div class="js-board-inner-view"></div>
+				<ul class="list-unstyled js-chart-block js-show-add-boards-list-simple">
+					<li class="js-show-boards-list-simple-response"></li>
+					<li class="js-show-add-boards-simple list-group-item clearfix text-center btn-block js-back">
+						<a href="#" class="js-show-board-list-add-form col-xs-12 h6 navbar-btn">
+							<span class="show clearfix text-primary navbar-btn h3"><%- i18next.t('Create new board') %></span>
+						</a>
+					</li>
+				</ul>
+			</div>
+	</div>
+	<% } %>
+<% } %>

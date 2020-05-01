@@ -1,0 +1,69 @@
+<ul class="list-unstyled comment-list activity-mod-comments">
+<li class="comment-block">
+<ul class="nav nav-tabs no-bor h3">
+	<li class="active js-show-editComment show-editComment-<%- activity.attributes.id%> cur" data-id="<%- activity.attributes.id%>"><a><%- i18next.t("Write") %></a></li>
+		<li class="js-preview-editComment preview-editComment-<%- activity.attributes.id%> cur" data-id="<%- activity.attributes.id%>"><a><%- i18next.t("Preview") %></a></li>
+</ul>
+<div class="well-sm"></div>
+<div class="form-group required">
+	<textarea rows="4" class="js-inputComment form-control js-comment" name="comment" required><%- activity.attributes.comment %></textarea>
+	<input type="hidden" value="<%- activity.attributes.id%>" name="id"/>
+	<div class="panel js-card-editComment-preview-panel hide no-mar">
+	<div class="panel-body js-card-editComment-preview github-markdown"></div>
+</div>
+</div>
+<div class="row">
+	<div class="col-sm-7">
+		<div class="js-new-comment clearfix btn-block navbar-btn no-mar">
+<span class="radio pull-right btn-block no-mar">
+	<ul class="list-unstyled clearfix emoji-list no-top-mar">
+		<li class="pull-left radio-inline">
+			<div class="clearfix dropdown js-show-emoji-list-response"> <a class="js-show-emoji-list show dropdown-toggle btn-link btn-xs btn-block" role="button" data-toggle="dropdown" title="<%- i18next.t('Add Emoji') %>" href="#"> <span class="text-muted show" ><%- i18next.t('Add Emoji') %></span> </a>
+			</div>
+		</li>
+		<% if(!_.isUndefined(authuser.user) && (authuser.user.role_id == 1 || !_.isEmpty(activity.board.acl_links.where({slug: "view_card_search", board_user_role_id: parseInt(activity.board_user_role_id)})))) { %>
+			<li class="pull-left radio radio-inline">
+			  <div class="clearfix dropdown"> <a class="show dropdown-toggle btn-link btn-xs btn-block" role="button" data-toggle="dropdown" title="<%- i18next.t('Add Card') %>" href="#"> <span class="text-muted show" ><%- i18next.t('Add Card') %></span> </a>
+				<ul class="dropdown-menu arrow col-xs-3 list-group pre-scrollable vertical-scrollbar">
+				  <li class="col-xs-12 clearfix text-center">
+					<div><span class="col-xs-10"><strong><%- i18next.t('Add Card') %></strong></span>
+					<a class="js-close-popover pull-right" href="#"><i class="icon-remove "></i></a></div>
+				  </li>
+				  <li class="col-xs-12 divider"></li>
+				  <li class="col-xs-12 js_activity_card_search_response">
+					  <div class="clearfix">
+						<label class="sr-only"><%- i18next.t('Search Card') %></label>                            
+						  <input type="text" placeholder="<%- i18next.t('Search Card') %>" name="card" class="js-search-card form-control input-sm  js-no-action" title="<%- i18next.t('Search Card') %>">
+					  </div>
+				  </li>
+				</ul>
+			  </div>
+			</li>
+		<% } %>
+		<li class="pull-left radio radio-inline js-modal-card-wiki-edit" data-activity-id="<%- activity.attributes.id%>"></li>
+		<li class="dropdown pull-left radio-inline radio">
+		  <div class="clearfix dropdown"> <a class="show dropdown-toggle btn-link btn-xs btn-block js-show-members" role="button" data-toggle="dropdown" title="<%- i18next.t('Mention a member') %>" href="#"> <span class="text-muted show" ><%- i18next.t('Mention a member') %></span> </a>
+			<ul class="dropdown-menu arrow col-xs-3">
+			  <li class="col-xs-12 clearfix text-center"><div><span class="col-xs-10"><strong><%- i18next.t('Mention a member') %></strong></span> <a class="js-close-popover pull-right" href="#"><i class="icon-remove "></i></a></div></li>
+			  <li class="col-xs-12 divider"></li>
+			  <li class="col-xs-12 js-comment-member-search-response">
+				  <div class="clearfix">
+					<label class="sr-only"><%- i18next.t('Search Member') %></label>
+					<input type="text" autocomplete="off" placeholder="<%- i18next.t('Search Members') %>" name="member" class="js-search-member form-control input-sm js-no-action" title="<%- i18next.t('Search Members') %>">
+				  </div>
+			  </li>
+			</ul>
+		   </div>
+		</li>
+	</ul>
+<div class="submit">
+<input type="submit" id="submitListAdd" class="btn  btn-primary" value="Save"/>
+<i class="icon-remove js-hide-edit-comment-form btn btn-link cur" title="Cancel" data-activity-id="<%- activity.attributes.id%>"></i>
+</div>
+</div>
+	</div>
+	</div>
+	<div class="col-sm-5">
+		<div class="list-group-item-text navbar-right"><a target="_blank" class="pull-right text-muted btn-xs" title="<%- i18next.t('Markdown') %>" href="http://restya.com/board/docs/markdown?utm_source=Restyaboard - <%- SITE_NAME %>&utm_medium=web&utm_campaign=markdown_help">Styling with Markdown is supported</a></div>
+	</div>
+</li>

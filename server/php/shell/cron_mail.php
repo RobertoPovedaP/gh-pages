@@ -28,6 +28,7 @@ if (!empty($argv) && !empty($argv[1])) {
         $to_email = DEFAULT_REPLY_TO_EMAIL_ADDRESS;
         $from_email = DEFAULT_FROM_EMAIL_ADDRESS;
         if (!empty($to_email) && !empty($from_email)) {
+            $email = pg_fetch_assoc($result);
             $subject = 'Restyaboard / From cron (' . $argv[1] . ')';
             $from_email = DEFAULT_FROM_EMAIL_ADDRESS;
             $message = 'Please check the permission for the shell folder of ' . $argv[1] . ' in your server ' . $_server_domain_url;

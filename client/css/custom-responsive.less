@@ -1,0 +1,690 @@
+@media (min-width:768px) and (max-width:1024px) {
+	body {
+	
+		.popped-out {
+			textarea.form-control {
+				height: 100px;
+			}
+			ul.card-view-mn {
+				li.dropdown {
+					ul.dropdown-menu {
+						li {
+							>div {
+								&:first-child {
+									width: 20%;
+								}
+								&:last-child {
+									width: 80%;
+								}
+							}
+							&.small {
+								div {
+									&:last-child {
+										left: 20%;
+									}
+								}
+							}
+						}
+					}
+				}
+				.duedate {
+					.form-group {
+						.input-group {
+							width: 80%;
+						}
+						.control-label {
+							width: 20%;
+						}
+					}
+				}
+			}
+		}
+	}
+	.js-board-name-truncate {
+		max-width: 525px;
+	}
+}
+@media (min-width:992px) and (max-width:1300px) {
+	.new-sample-border{
+		min-height: 193px;
+		h4{
+			font-size:13px;
+		}
+		&:first-child{
+			.mauto{
+				max-width: 55px;
+				margin: 0;
+				padding: 0;
+				float: left;
+			}
+			.circle-blk{
+				margin: 0 0 0 10px;
+				float: left;
+				max-width: 120px;
+			}
+		}
+		&.new-sample-border1{
+			padding: 0 5px;
+			.thumbnail{
+			    padding: 0;
+			}
+			.timer{
+				padding: 0;
+    			float: left;
+			}
+			.week-chart-date {
+				margin: 0;
+				li{
+			    width: 40px;
+					.list-group-item-heading{
+						font-size: 13px;
+					}
+				}
+			}
+			.circle-blk{
+				margin: 0;
+				padding: 0;
+				float: left;
+				max-width: 121px;
+			}
+		}
+		.timer{
+			float: none;
+			text-align: center;
+			margin: 0 auto;
+		}
+		&.hgt-this-alone{
+			.timer{
+				margin: 0;
+				padding: 0;
+				float: left;
+				width: 32%;
+			}
+			.circle-blk{
+				margin: 0;
+    			float: left;
+			    max-width: 120px;
+			}
+		}
+		/*&.hgt-this-alone{
+			.thumbnail{
+				min-height:302px;
+			}
+			.navbar-btn{
+				bottom: 22px;
+				position: absolute;
+				right: 4px;
+				&.rdbtn{
+					bottom:24px !important;
+				}
+				&:last-child{
+					    bottom: 3px;
+						position: absolute;
+						right: 7px;
+				}
+			}
+		}*/
+		.dounet-calender2{
+			margin:auto;
+		}
+		ul.list-unstyled{
+			text-align: center;
+			max-width: 130px;
+			width: 100%;
+			margin: auto;
+		}
+		.circle-blk{
+			float:none;
+		}
+	}
+	
+}	
+@media (max-width:767px) {
+	body {
+		.content {
+			main {
+				padding-bottom: 35px;
+			}
+			.mob-no-mar {
+				margin: 0 !important;
+			}
+			.mob-no-pad {
+				padding: 0;
+			}
+			.table-responsive {
+				overflow-y: auto;
+			}
+			header {
+				.navbar {
+					min-height: 32px;
+				}
+				.nav {
+					&.pillsuser-list {
+						> li {
+							>a {
+								padding: 0px 5px;
+							}
+						}
+					}
+				}
+				.board-visibility {
+					.arrow.arrow-right {
+						left: 0;
+						right: auto;
+						&:before {
+							left: 12px;
+							right: auto;
+						}
+						&:after {
+							left: 13px;
+							right: auto;
+						}
+					}
+				}
+				.navbar-collapse {
+					&.in {
+						overflow-y: visible;
+					}
+					.btn.icon {
+						margin-right: 5px;
+						[class^="icon-"] {
+							padding: 0;
+						}
+					}
+				}
+				.dropdown-menu {
+					&.arrow.arrow-right.col-xs-push-0 {
+						left: 0;
+						&:before, &:after {
+							left: 10px;
+							right: auto;
+						}
+						&:after {
+							left: 11px;
+						}
+					}
+				}
+			}
+			.profile-block {
+				.close-block {
+					right: 10px;
+    				top: -5px;
+				}
+			}
+			footer {
+				.badge {
+					&.notification-count {
+						font-size: 9px;
+						padding: 3px 5px;
+						top: -2px;
+						left: -2px;
+					}
+				}
+				&.footer {
+					bottom: 0;
+					top: auto;
+					-webkit-transition: -webkit-transform .3s;
+					-moz-transition: -moz-transform .3s;
+					transition: transform .3s;
+					-webkit-transform: translate3d(0,110%,0);
+					-moz-transform: translate3d(0,110%,0);
+					transform: translate3d(0,110%,0);
+					&.action-open {
+						bottom: 0;
+						top: auto;
+						height: 400px;
+						-webkit-transform: translate3d(0,0,0);
+						-moz-transform: translate3d(0,0,0);
+						transform: translate3d(0,0,0);
+						.nav {
+							> li {
+								margin-bottom: 2px;
+								>a {
+									padding: 6px 9px;
+									.lead {
+										font-size: 20px;
+										display: inline-block;
+										line-height: 19px;
+										margin-right: 2px;
+										&.icon-volume-off {
+											line-height: 27px;
+										}
+									}
+									[class^="icon-"], [class*=" icon-"] {
+										padding: 0;
+									}
+									&.admin-cp {
+										margin-left: 3px;
+									}
+								}
+								&.music-btn {
+									left: 8px;
+									top: 164px;
+									margin-left: 0;
+									margin-right: 0;
+									position: static;
+								}
+								&.footer-logo {
+									a {
+										padding: 4px 7px;
+										margin-top: -5px;
+									}
+									.notification-count {
+										display: none;
+									}
+								}
+							}
+						}
+					}
+					.footer-logo {
+						position: absolute;
+						left: 43%;
+						top: -33px;
+					}
+				}
+			}
+			.action-sheet {
+				display: block;
+				.action-block {
+					position: absolute;
+					left: 0;
+					right: 0;
+					bottom: 0;
+					top: 0;
+					background: none;
+					padding: 0 0px;
+					z-index: 4;
+					-webkit-transform: translate3d(0,110%,0);
+					-moz-transform: translate3d(0,110%,0);
+					transform: translate3d(0,110%,0);
+				}
+				&.open {
+					.action-block {
+						-webkit-transform: translate3d(0,0,0);
+						-moz-transform: translate3d(0,0,0);
+						transform: translate3d(0,0,0);
+						opacity: 1;
+						.navbar-default {
+							padding: 20px 9px !important;
+						}
+						&.action-content {
+							.nav {
+								>li {
+									>a {
+										.icon-bell {
+											line-height: 27px;
+										}
+									}
+								}
+								&.nav-pills {
+									float: none;
+									text-align: center;
+									margin: 25px auto 15px;
+									ul {
+										text-align: left;
+									}
+									.js-show-add-boards-list {
+										width: 265px;
+										bottom: 100%;
+									}
+									.js-change-avatar-form-response {
+										bottom: 100%;
+										width: 200px;
+									}
+									>li {
+										float: none !important;
+										display: inline-block;
+										&.about-btn {
+											display: none !important;
+											width: 100%;
+											text-align: right;
+											padding-right: 10px;
+											a {
+												float: right !important;
+											}
+										}
+									}
+									&.navbar-left {
+										width: 283px;
+										position: relative;
+										margin-left: auto;
+										margin-right: auto;
+										>li {
+											margin-right: 0px;
+											&:last-child {
+												margin-right: 0px;
+											}
+										}
+									}
+									&.navbar-right {
+										width: 283px;
+										margin-left: auto;
+										margin-right: auto;
+										>li {
+											margin-bottom: 2px;
+										}
+									}
+								}
+							}
+						}
+						.navbar {
+							height: 100%;
+							padding: 0 12%;
+						}
+						li.hidden-xs {
+							display: inline-block !important;
+						}
+					}
+				}
+			}
+			.js-board-import-blk {
+				> li {
+					display: block !important;
+				}
+			}
+			.navbar-toggle {
+				padding: 5px 7px;
+				margin-right: 5px;
+				border-radius: 2px;
+				background: @brand-primary;
+				border-color: @brand-primary;
+				.icon-bar {
+					background: #ffffff;
+					.size(14px,1px);
+				}
+				&:hover, &:focus {
+					background: #ffffff;
+					.icon-bar {
+						background: @brand-primary;
+					}
+				}
+			}
+			.bg-primary {
+				.navbar-toggle {
+					border-color: #ffffff !important;
+				}
+			}
+			.board-viewlist {
+				.table {
+					width: 700px;
+					a {
+						white-space: normal;
+					}
+				}
+			}
+			.user-filter {
+				span:first-child{
+					line-height: 30px;
+				}
+			}
+		}
+		.dockmodal {
+			display: block !important;
+			width: 96% !important;
+			right: 5px !important;
+			.dropdown-submenu >.dropdown-menu {
+				left: 0;
+				margin-top: 25px;
+				right: auto;
+			}
+		}
+		.ui-autocomplete, .ui-autocomplete.ui-menu.search-block {
+			display: none;
+		}
+		.mob-text-center{
+		text-align:center;
+		float:none;
+	}
+	.circle-blk{
+		width:100%;
+		text-align:center;
+   	}
+   .datecalendar{
+	   text-align:Center;
+	   margin:0 auto;
+   }
+   .mob-no-pad{
+	   padding:0;
+   }
+   .new-sample-border{
+	   //padding:0;
+	   margin-top:10px;
+	   .thumbnail{
+		   margin-bottom:0px;
+	   }
+   }
+	}
+	.popped-out {
+		ul.card-view-mn {
+			li.dropdown {
+				ul.dropdown-menu > li > div {
+					&:first-child {
+						width: 100%;
+					}
+					.form-group {
+						.col-xs-12 {
+							padding-left: 15px;
+						}
+					}
+				}
+			}
+			.duedate {
+				.form-group {
+					.control-label {
+						width: 100%;
+					}
+					.input-group {
+						padding-left: 15px;
+					}
+				}
+			}
+		}
+		.full-form {
+			margin-left: 0;
+		}
+	}
+	.date-schedule{
+		width:56px;
+		margin:0 auto;
+	}
+	.circle-chart{
+		    width: 125px;
+    		height:133px;
+    	margin: 10px auto 10px !important;
+	}
+	.js-board-name-truncate {
+		max-width: 240px;
+	}
+	.icallfeed-dropdown {
+		min-width: 350px;
+	}
+}
+@media (max-width:767px) and (orientation:portrait) {
+	body {
+		.content {
+			footer {
+				.dropdown-submenu .dropdown-menu {
+					left: 0;
+					margin-bottom: 25px !important;
+				}
+				&.footer {
+					&.action-open {
+						height: 250px;
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width:767px) and (orientation:landscape) {
+	body {
+		.dockmodal {
+			max-height: 200px !important;
+		}
+		.content {
+			footer {
+				&.footer {
+					&.action-open {
+						height: 220px;
+						.nav {
+							> li {
+								> a {
+									padding: 6px 9px;
+									&.admin-cp {
+										margin-left: 0;
+									}
+								}
+								&.music-btn {
+									top: 134px;
+								}
+							}
+						}
+					}
+				}
+			}
+			.action-sheet.open {
+				.action-block.action-content {
+					.nav.nav-pills {
+						> li {
+							&.board-btn a, &.org-btn a {
+								padding: 8px 20px;
+								margin-left: 2px;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+@media (max-width:568px) and (orientation:landscape) {
+	body {
+		.dockmodal {
+			max-height: 175px !important;
+		}
+	}
+}
+@media (max-width:480px) {
+	body {
+		.content {
+			.about-block {
+				width: 280px;
+				ul {
+					>li {
+						a {
+							word-break: break-all;
+							display: block;
+							margin-bottom: 5px;
+						}
+					}
+				}
+			}
+		}
+		.dockmodal {
+			bottom: 32px !important;
+			.form-horizontal {
+				.col-xs-6 {
+					.select2-container {
+						width: 100% !important;
+					}
+				}
+			}
+		}
+		.add-apps-list {
+			ul.dropdown-menu {
+				left: -98px;
+			}
+		 }
+	}
+	.attachement-list {
+		float: none;
+		width: 100%;
+		margin: 15px auto;
+	}
+}
+@media (max-width:374px) {
+	.js-board-name-truncate {
+		max-width: 197px;
+	}
+}
+@media (max-width:1024px) {
+	.dockmodal {
+		.splitter-wrap {
+			width: 100% !important;
+			.ui-resizable-handle {
+				display: none !important;
+			}
+		}
+	}
+}
+@media (min-width: 481px) and (max-width: 767px) {
+	.attachement-list {
+		width: 43.5%;
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+		.new-sample-border{
+			margin-top:10px;
+			&.hgt-this-alone{
+				    min-height: 200px;
+			}
+	}
+		.dashboard-rp-calender{
+			 max-width: 130px;
+			display: block;
+			width: 100%;
+			margin: auto;
+			float: none;	
+         }
+		 .min-hgt-4res{
+		     min-height: 206px;
+			 .navbar-btn{
+				     margin-top: 24px;
+			 }
+		 }
+		 .dounet-calender2{
+			 li{
+			     margin: 18px auto;
+			 }	
+		 }
+		 .dounet-chart-responsive{
+			margin: 18px auto;
+			display: inline-block;
+			max-width: 58px;
+			width: 100%;
+		 }
+	.attachement-list {
+		width: 28.6%;
+	}
+	.mob-text-center{
+		text-align:center;
+		float:none;
+	}
+	.circle-blk{
+		float:none;
+		width:100%;
+		text-align:center;
+		overflow: hidden;
+   }
+   .datecalendar{
+	   text-align:Center;
+	   margin:0 auto;
+   }
+   .new-sample-border{
+	   
+	    	min-height:314px;
+      
+	   .thumbnail{
+		   //margin-bottom:0px;
+	   }
+   }
+   .mauto{
+		margin:0 auto;
+	}
+	.charttopspce{
+		//margin:20px 0 0;
+	}
+	.chartbotspce{
+		//margin:0 0 20px;
+	}
+}		

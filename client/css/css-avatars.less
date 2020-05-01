@@ -1,0 +1,29 @@
+﻿.avatar {
+  position: relative;
+  top: 0;
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  width: 30px; 
+  height: 30px;
+  font-size: 16px; 
+}
+
+// sizes:
+.avatar    { width:  32px; height:  32px;  line-height:  32px; font-size: 16px; }
+.avatar-sm { width:  16px; height:  16px;  line-height:  16px; font-size: 8px; }
+.avatar-md { width:  64px; height:  64px;  line-height:  64px; font-size: 32px; }
+.avatar-lg { width: 128px; height: 128px;  line-height: 128px; font-size: 64px; }
+
+// colors:
+@color-dark:          #333;
+@color-light:         #eee;
+@shadow-offset:       0.02em 0.02em 0.02em;
+@text-shadow-inverse: darken(@color-light, 50%) @shadow-offset;
+
+.avatar { color: @color-light; text-shadow: @text-shadow-inverse; border-radius:@border-radius-base;}

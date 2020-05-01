@@ -1,0 +1,21 @@
+---
+engines:
+  csslint:
+    enabled: true
+  eslint:
+    enabled: true
+  fixme:
+    enabled: true
+  phpmd:
+    enabled: true
+ratings:
+  paths:
+  - "**.css"
+  - "**.js"
+  - "**.php"
+exclude_paths:
+- api_explorer/*
+- build/*
+- client/css/converse.css
+- client/js/libs/*
+- server/php/libs/vendors/**/*

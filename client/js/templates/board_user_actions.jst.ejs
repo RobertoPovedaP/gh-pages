@@ -1,0 +1,57 @@
+<li>
+<div class="col-xs-12 clearfix text-center">
+	<span class="pull-left" data-placement="bottom" title="<%- user.attributes.full_name %> (<%- user.attributes.username %>)" data-toggle="tooltip">
+	<% if(!_.isEmpty(user.attributes.profile_picture_path)) { 
+		var profile_picture_path = user.showImage('User', user.attributes.user_id, 'micro_thumb' );
+	%>
+		<img src="<%=profile_picture_path %>" alt="[Image: <%-user.attributes.username %>]" title="<%- user.attributes.full_name %> (<%-user.attributes.username %>)" class="img-rounded">
+	<% } else {%>
+		<i class="avatar avatar-color-194 img-rounded"><%- user.attributes.initials %></i>
+	<% } %></span>
+	<span class="col-xs-8"><a class="js-user-profile" data-id="<%- user.attributes.user_id %>" title="<%- user.attributes.full_name + '@' + user.attributes.username %>" href="javascript:void(0)"><strong><%- user.attributes.full_name %></strong> @<%- user.attributes.username %></a></span>
+		<span class="">
+			<a class="js-close-popover pull-right" href="#"><i class="icon-remove"></i></a>
+		</span>
+</div>
+<div class="col-xs-12 divider"></div>
+<div class="col-xs-12">
+	<ul class="list-unstyled dropdown-menu dropdown-list show">
+		<% if (!_.isUndefined(authuser.user) && (authuser.user.role_id == 1 || !_.isEmpty(user.collection.board.acl_links.where({slug: 'edit_board_user', board_user_role_id: parseInt(user.collection.board.board_user_role_id)})))) { %>
+		<li class="dropdown"> 
+			<a href="#" data-toggle="dropdown" class="dropdown-toggle js-show-dropdown"> <%- i18next.t('Change permissions') %><% _.each(user.board_user_roles, function(board_user_role){  
+								if (board_user_role.id == user.attributes.board_user_role_id) {%> 
+									(<%- board_user_role.name %>)
+								<% }
+							}); %></a>
+			<ul class="dropdown-menu dropdown-menu-right arrow arrow-right js-list-actions-response">
+				<div class="clearfix text-center col-xs-12"> <span class="col-xs-10"><strong><%- i18next.t('Change permissions') %></strong></span><a href="#" class="js-close-popup pull-right"><i class="icon-remove "></i></a> </div>
+				<div class="col-xs-12 divider"></div>
+				<div class="col-xs-12">
+				  <ul class="list-unstyled">
+				  <% _.each(user.board_user_roles, function(board_user_role){%>
+							<li> <a href="#" data-board_user_role_id="<%- board_user_role.id %>" class="js-edit-board-member-permission"> <span class="show text-primary">
+							<%- board_user_role.name %>
+							<% if(board_user_role.id == user.attributes.board_user_role_id){%><i class="icon-check well-sm"></i><%}%>							
+							</span> <span class="text-muted"><%- board_user_role.description %></span> </a> </li>
+							<li class="divider"></li>
+				  <% }); %>
+				  </ul>
+				</div>
+			</ul>
+		</li>
+		<% } %>
+		<li>
+			<% var title = i18next.t("View member's board activity"); %>
+			<a href="#" title="<%- title %>" data-user-id="<%- user.attributes.user_id %>" class="js-view-user-activities">
+				<span><%- i18next.t("View member's board activity") %></span>
+			</a>
+		</li>
+		<% if(user.board_users_count !== 1) { %>
+			<% if (!_.isUndefined(authuser.user) && (authuser.user.role_id == 1 || !_.isEmpty(user.collection.board.acl_links.where({slug: 'remove_board_user', board_user_role_id: parseInt(user.collection.board.board_user_role_id)})))) { %>
+					<li><a href="#" title="<%if(parseInt(authuser.user.id) != user.attributes.user_id ){%><%- i18next.t('Remove from board') %><%}else{%><%- i18next.t('Leave from board') %><%}%>" class="js-show-confirm-delete-board-member"><% if(parseInt(authuser.user.id) != user.attributes.user_id ){%><%- i18next.t('Remove from board') %><%}else{%><%- i18next.t('Leave from board') %><%}%></a></li>
+			<% } %>
+		<% } %>
+	</ul>
+</div>
+
+<li>
